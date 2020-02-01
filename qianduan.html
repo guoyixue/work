@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>	
+<title>登录</title>	
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">	
+<meta name="apple-mobile-web-app-capable" content="yes">	
+<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+<meta name="format-detection" content="telephone=no">	
+<link rel="stylesheet" type="text/css">
+<style>
+    .content{	width: 50%;	margin-top: 10%;text-align: center;}
+        .longin-boder{	width: 120%;	height: auto;	margin-top: 5%;	margin-left: 40%;	line-height: 40px;	text-align: center;	border: 1px solid #dddddd;	border-radius: 25px;  	background-color: white;}
+        .input{	width: 60%;margin-left: 20%;	height: 35px;	line-height: 35px;	border:0px;	color: #726c6c;	font-size: 16px;	background-color: white;	} 
+        .button{	height: auto;width:120%;	margin-top: 10%;	margin-left: 40%;	font-size: 120%;	font-family: "微软雅黑";	font-weight: bold;	line-height: 200%;	color: rgb(104, 170, 224);	background-color: white;border-radius:25px;border:1px solid rgb(68, 180, 214);	} 
+        .button:active {  	background-color:rgb(117, 174, 221);}
+        .box{  height:400px;border:1px solid rgb(252, 247, 247); background-color: white;margin: 25px 25px;border-radius:10px;margin-top:-10px;}
+        #myImg03{width: auto;}
+        .footer{ margin-top:-10px;height:50px;z-index: 9999;}
+        </style>
+</head>
+<body  background="C:\Users\郭怡雪\Desktop\work\image\bgd.png" style=" background-repeat:no-repeat;background-size:auto;
+background-attachment: fixed;">
+<div>
+<img src="C:\Users\郭怡雪\Desktop\work\image\arc.png" title="arc" style="margin-top:15%;margin-left: 26%;width:46%;height:13%"></div>
+    <div class="box">
+        <div>
+            <img src="C:\Users\郭怡雪\Desktop\work\image\touxiang.png" title="touxinag" style="margin-top:-15%;;width:28%;height:28%;margin-left: 35%;">
+        </div>
+    <div class="content">	
+<div class="longin-boder">		
+<input class="input" id="username" style="outline: none;" type="text" placeholder="输入用户名"  >	
+</div> 	<br><!--End用户名输入框-->	 
+<div class="longin-boder">			
+<input class="input" id="password"  style="outline: none;"type="password" placeholder="请输入密码" />	 
+</div>	<!--End密码输入框-->	<br>
+<div id="myImg03">
+        <a id="myA"  href="" style="color:#817e7e;margin-left: 32%;width:52%;float:left;text-decoration: none; ">忘记密码</a>
+        <a id="myA" href="" style="margin-left:112%;width:51%;float:left;margin-top: -20px;color: rgb(66, 108, 201);text-decoration: none;">立即注册</a>
+    </div>
+  <br>
+  <div class="button" onclick="CommentAll()">登录</div></div>
+</div> <br>
+<div class="footer">
+<div><hr noshade="noshade" color=#ffffff style="margin-left: 13%;float:left;width:27%;">
+<font style="float:left;color: cornsilk;">第三方登录</font>
+<hr noshade="noshade" color=#ffffff style="margin-left: 1%;float:left;width:27%;"></div>
+<br><br>
+<div>
+<a href=""><img src="C:\Users\郭怡雪\Desktop\work\image\wx.png" title = "wx"  style="float:left;margin-left: 19%;width:11%;margin-top:-10px;"></a>
+<a href=""><img src="C:\Users\郭怡雪\Desktop\work\image\qq.png"  title = "qq"  style="float:left;margin-left: 16%;width:11%;margin-top:-10px;"></a>
+<a href=""><img src="C:\Users\郭怡雪\Desktop\work\image\wb.png"  title = "wb"  style="float:left;margin-left: 15%;width:11%;margin-top:-10px;"></a>
+</div>
+</div></div>  
+<script type="text/javascript">
+	let xmlhttp =new XMLHttpRequest();
+	let usernamestr=document.getElementById('username');
+    let passwordstr=document.getElementById('password');
+
+    function CommentAll(){
+    console.log(usernamestr.value)
+    console.log(passwordstr.value)
+    	xmlhttp.onreadystatechange = callbackl;
+    	xmlhttp.open("post","http://localhost:8081/a",true);
+    	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    	xmlhttp.send("username="+usernamestr.value+"&password="+passwordstr.value);
+    }
+    function callbackl(){
+    	if(xmlhttp.readyState == 4)
+    		if(xmlhttp.status == 200){
+    			let data = xmlhttp.responseText;
+    			alert(data);
+    		}
+    }
+    </script>   
+</body>
+</html>
